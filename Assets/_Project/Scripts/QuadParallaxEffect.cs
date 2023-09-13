@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace gishadev
 {
+    /// <summary>
+    /// Simple parallax effect for quad. Attach to quad with material and texture. Parallax effect should be children of moving camera object.
+    /// </summary>
     [RequireComponent(typeof(MeshRenderer))]
     public class QuadParallaxEffect : MonoBehaviour
     {
@@ -22,8 +25,8 @@ namespace gishadev
             float parX = (_previousCamPos.x - _camTrans.position.x) * parallaxHorSpeed;
             float parY = (_previousCamPos.y - _camTrans.position.y) * parallaxVerSpeed;
 
-            var xOffset =  _quadRenderer.material.mainTextureOffset.x;
-            var yOffset =  _quadRenderer.material.mainTextureOffset.y;
+            var xOffset = _quadRenderer.material.mainTextureOffset.x;
+            var yOffset = _quadRenderer.material.mainTextureOffset.y;
 
             _quadRenderer.material.mainTextureOffset = new Vector2(xOffset + parX, yOffset + parY);
             _previousCamPos = _camTrans.position;
