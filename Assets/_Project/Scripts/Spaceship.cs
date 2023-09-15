@@ -8,8 +8,6 @@ namespace gishadev
         [SerializeField] private float rotationAmplitude = 30f;
         [SerializeField] private float xMoveOffset = 1f;
 
-        private Vector3 _lastPos;
-        
         private void OnEnable()
         {
             FindObjectOfType<CameraController>().SetTargetSize(zoomFactor);
@@ -19,8 +17,6 @@ namespace gishadev
         {
             transform.localPosition = Vector3.right * (Mathf.Sin(Time.time) * xMoveOffset);
             transform.localRotation = Quaternion.Euler(Vector3.forward * (Mathf.Sin(Time.time) * rotationAmplitude));
-            
-            _lastPos = transform.position;
         }
     }
 }
